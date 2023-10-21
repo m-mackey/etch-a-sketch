@@ -13,3 +13,10 @@ body {
     height: 80%;
     background-color: blue;
 }
+
+.pixel {
+    width: 1em;
+    height: 1em;
+    background-color: blueviolet;
+    border: 1px solid black; /*keep in mind where borders touch is doubled */
+}
