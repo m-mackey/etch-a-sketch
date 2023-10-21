@@ -8,7 +8,7 @@ body {
     height: 100vh;
 }
 
-.container {
+.canvas {
     width: 80%;
     height: 80%;
     background-color: blue;
