@@ -1,7 +1,7 @@
 //placement of pixels
 const canvas = document.querySelector('.canvas');
 
-const userNum = 4;
+const userNum = 2;
 
 let totalPixels = userNum * userNum;
 

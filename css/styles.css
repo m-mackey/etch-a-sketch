@@ -16,7 +16,6 @@ body {
 }
 
 .pixel {
-    background-color: blueviolet;
     border: 1px solid black; /*keep in mind where borders touch is doubled */
     flex-grow: 1;
 }
