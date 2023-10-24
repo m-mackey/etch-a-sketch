@@ -1,13 +1,11 @@
 //placement of pixels
 const canvas = document.querySelector('.canvas');
 
-const userNum = 2;
+const userNum = 4;
 
 let totalPixels = userNum * userNum;
-console.log(totalPixels);
 
 let flexBasisCalc = (userNum * 100) / totalPixels;
-console.log(flexBasisCalc);
 
 for (let i = 0; i < totalPixels; i++) {
   const pixel = document.createElement('div');
@@ -15,6 +13,7 @@ for (let i = 0; i < totalPixels; i++) {
   pixel.style.flexBasis = `${flexBasisCalc}%`;
   pixel.style.opacity = 0;
   pixel.addEventListener('mouseover', setOpacity);
+  pixel.addEventListener('mouseover', randomizeColor);
   canvas.appendChild(pixel);
 }
 
@@ -26,4 +25,12 @@ function setOpacity() {
     currentOpacity += 0.1;
     this.style.opacity = currentOpacity;
   }
+}
+
+//randomize pixel color event
+function randomizeColor() {
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+  this.style.background = `rgb(${red} ${blue} ${green})`;
 }
