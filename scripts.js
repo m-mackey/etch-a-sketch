@@ -1,14 +1,13 @@
 //placement of pixels
 const canvas = document.querySelector('.canvas');
 
-let pixelPerSide = 2;
+let defaultPixels = 2;
 
-function placePixels (pixelPerSide) {
-  
+function placePixels(pixelPerSide) {
   let totalPixels = pixelPerSide * pixelPerSide;
-  
+
   let flexBasisCalc = (pixelPerSide * 100) / totalPixels;
-  
+
   for (let i = 0; i < totalPixels; i++) {
     const pixel = document.createElement('div');
     pixel.classList.add('pixel');
@@ -20,16 +19,22 @@ function placePixels (pixelPerSide) {
   }
 }
 
-placePixels(pixelPerSide);
+placePixels(defaultPixels);
 
 //prompt user for canvas size
 const sizeBtn = document.querySelector('.size-btn');
-
 sizeBtn.addEventListener('click', setCanvasSize);
 
 function setCanvasSize() {
-  let canvasSize = prompt('Enter size up to 100x100 pixels');
-  console.log(canvasSize);
+  let canvasSize = Number(prompt('Enter pixels per side, up to 100'));
+
+  while (canvasSize === 0 || isNaN(canvasSize) || canvasSize > 100) {
+    canvasSize = Number(prompt('Please only enter numbers up to 100'));
+  }
+
+  canvas.innerHTML = '';
+
+  placePixels(canvasSize);
 }
 
 //increase opacity event function
