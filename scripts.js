@@ -17,6 +17,16 @@ for (let i = 0; i < totalPixels; i++) {
   canvas.appendChild(pixel);
 }
 
+//prompt user for canvas size
+const sizeBtn = document.querySelector('.size-btn');
+
+sizeBtn.addEventListener('click', setCanvasSize);
+
+function setCanvasSize() {
+  let canvasSize = prompt('Enter size up to 100x100 pixels');
+  console.log(canvasSize);
+}
+
 //increase opacity event function
 function setOpacity() {
   let currentOpacity = +this.style.opacity;
