@@ -13,9 +13,9 @@ body {
     height: 80%;
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid black;
 }
 
 .pixel {
-    border: 1px solid black; /*keep in mind where borders touch is doubled */
     flex-grow: 1;
 }
