@@ -1,21 +1,26 @@
 //placement of pixels
 const canvas = document.querySelector('.canvas');
 
-const userNum = 2;
+let pixelPerSide = 2;
 
-let totalPixels = userNum * userNum;
-
-let flexBasisCalc = (userNum * 100) / totalPixels;
-
-for (let i = 0; i < totalPixels; i++) {
-  const pixel = document.createElement('div');
-  pixel.classList.add('pixel');
-  pixel.style.flexBasis = `${flexBasisCalc}%`;
-  pixel.style.opacity = 0;
-  pixel.addEventListener('mouseover', setOpacity);
-  pixel.addEventListener('mouseover', randomizeColor);
-  canvas.appendChild(pixel);
+function placePixels (pixelPerSide) {
+  
+  let totalPixels = pixelPerSide * pixelPerSide;
+  
+  let flexBasisCalc = (pixelPerSide * 100) / totalPixels;
+  
+  for (let i = 0; i < totalPixels; i++) {
+    const pixel = document.createElement('div');
+    pixel.classList.add('pixel');
+    pixel.style.flexBasis = `${flexBasisCalc}%`;
+    pixel.style.opacity = 0;
+    pixel.addEventListener('mouseover', setOpacity);
+    pixel.addEventListener('mouseover', randomizeColor);
+    canvas.appendChild(pixel);
+  }
 }
+
+placePixels(pixelPerSide);
 
 //prompt user for canvas size
 const sizeBtn = document.querySelector('.size-btn');
