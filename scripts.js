@@ -19,6 +19,10 @@ function placePixels(pixelPerSide) {
   }
 }
 
+//remove the randomcolor from the event listener and only add it when that class is 
+//toggled to on button click. will need to make sure it gets removed with the toggle. 
+//and to see what this will do to the color if changed while drawing. 
+
 placePixels(defaultPixels);
 
 //prompt user for canvas size
@@ -53,4 +57,14 @@ function randomizeColor() {
   let green = Math.floor(Math.random() * 256);
   let blue = Math.floor(Math.random() * 256);
   this.style.background = `rgb(${red} ${blue} ${green})`;
+}
+
+//reset
+const resetBtn = document.querySelector('.reset');
+
+resetBtn.addEventListener('click', resetOpacity);
+
+function resetOpacity () {
+  const allPixels = document.querySelectorAll('.pixel');
+  allPixels.forEach((pixel) => pixel.style.opacity = 0);
 }
